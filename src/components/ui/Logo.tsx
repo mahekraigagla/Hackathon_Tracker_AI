@@ -1,12 +1,12 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Zap } from 'lucide-react';
+import { Zap, Code, Award } from 'lucide-react';
 
 interface LogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
-  variant?: 'default' | 'white';
+  variant?: 'default' | 'white' | 'code' | 'award';
   withText?: boolean;
 }
 
@@ -31,6 +31,19 @@ const Logo: React.FC<LogoProps> = ({
   const colors = {
     default: 'text-primary',
     white: 'text-white',
+    code: 'text-primary',
+    award: 'text-primary',
+  };
+
+  const getIcon = () => {
+    switch (variant) {
+      case 'code':
+        return <Code className={`${sizes[size]} stroke-[2.5]`} />;
+      case 'award':
+        return <Award className={`${sizes[size]} stroke-[2.5]`} />;
+      default:
+        return <Zap className={`${sizes[size]} stroke-[2.5]`} />;
+    }
   };
 
   return (
@@ -40,7 +53,7 @@ const Logo: React.FC<LogoProps> = ({
       aria-label="HackTrack"
     >
       <div className={`relative ${colors[variant]} ${sizes[size]}`}>
-        <Zap className={`${sizes[size]} stroke-[2.5]`} />
+        {getIcon()}
       </div>
       {withText && (
         <span className={`font-semibold tracking-tight ${colors[variant]} ${textSizes[size]}`}>

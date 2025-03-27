@@ -5,12 +5,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
+import { HackathonProvider } from "@/context/HackathonContext";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import ParticipantDashboard from "./pages/ParticipantDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import HackathonInfo from "./pages/HackathonInfo";
 import NotFound from "./pages/NotFound";
+import CreateHackathon from "./pages/CreateHackathon";
 
 const queryClient = new QueryClient();
 
@@ -41,34 +43,44 @@ const ProtectedRoute = ({ children, requiredRole }: { children: JSX.Element, req
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/hackathon-info" element={<HackathonInfo />} />
-            <Route 
-              path="/participant-dashboard" 
-              element={
-                <ProtectedRoute requiredRole="participant">
-                  <ParticipantDashboard />
-                </ProtectedRoute>
-              } 
-            />
-            <Route 
-              path="/admin-dashboard" 
-              element={
-                <ProtectedRoute requiredRole="admin">
-                  <AdminDashboard />
-                </ProtectedRoute>
-              } 
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
+      <HackathonProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/hackathon-info" element={<HackathonInfo />} />
+              <Route 
+                path="/participant-dashboard" 
+                element={
+                  <ProtectedRoute requiredRole="participant">
+                    <ParticipantDashboard />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/admin-dashboard" 
+                element={
+                  <ProtectedRoute requiredRole="admin">
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/create-hackathon" 
+                element={
+                  <ProtectedRoute requiredRole="admin">
+                    <CreateHackathon />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </HackathonProvider>
     </AuthProvider>
   </QueryClientProvider>
 );

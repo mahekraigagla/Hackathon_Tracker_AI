@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CheckCircle, Clock, X, FileText, Download, Search, Filter, Edit, Users, Award, RefreshCw, Video, Github } from 'lucide-react';
+import { CheckCircle, Clock, X, FileText, Download, Search, Edit, Users, Award, RefreshCw, Video, Github } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/context/AuthContext';
+import { useHackathon } from '@/context/HackathonContext';
 import Logo from '@/components/ui/Logo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Progress } from '@/components/ui/progress';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import HackathonManagement from '@/components/admin/HackathonManagement';
 
 // Mock data for teams
 interface TeamMember {
@@ -145,6 +146,7 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
 
 const AdminDashboard: React.FC = () => {
   const { user, logout } = useAuth();
+  const { hackathons, publishResults } = useHackathon();
   const navigate = useNavigate();
   const { toast } = useToast();
   
@@ -155,7 +157,6 @@ const AdminDashboard: React.FC = () => {
   const [winners, setWinners] = useState<{ id: string; place: number }[]>([]);
   const [announcementSent, setAnnouncementSent] = useState(false);
   
-  // Filter teams based on search term and status
   const filteredTeams = mockTeams.filter(team => {
     const matchesSearch = team.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            team.members.some(member => member.name.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -180,9 +181,7 @@ const AdminDashboard: React.FC = () => {
   };
   
   const selectWinner = (teamId: string, place: number) => {
-    // Remove existing team with this place
     const updatedWinners = winners.filter(winner => winner.place !== place);
-    // Add new winner
     setWinners([...updatedWinners, { id: teamId, place }]);
     
     toast({
@@ -211,6 +210,21 @@ const AdminDashboard: React.FC = () => {
     }
     
     setAnnouncementSent(true);
+    
+    publishResults({
+      hackathonId: hackathons[0]?.id || '1',
+      winners: winners.map(winner => {
+        const team = mockTeams.find(team => team.id === winner.id);
+        return {
+          id: winner.id,
+          teamName: team?.name || '',
+          place: winner.place,
+          projectTitle: '',
+          projectDescription: team?.abstract || '',
+        };
+      })
+    });
+    
     toast({
       title: 'Winners announced',
       description: 'The hackathon results have been announced and certificates will be sent automatically.',
@@ -225,14 +239,12 @@ const AdminDashboard: React.FC = () => {
   };
   
   const editTeamDetails = (teamId: string, updates: Partial<Team>) => {
-    // In a real app, this would update the team in the database
     toast({
       title: 'Team details updated',
       description: 'The team information has been updated successfully.',
     });
   };
   
-  // Stats calculations
   const totalTeams = mockTeams.length;
   const shortlistedCount = mockTeams.filter(team => team.status === 'shortlisted').length;
   const notSelectedCount = mockTeams.filter(team => team.status === 'not_selected').length;
@@ -241,7 +253,6 @@ const AdminDashboard: React.FC = () => {
   
   return (
     <div className="min-h-screen flex flex-col bg-secondary/30 dark:bg-hacktrack-gray-dark/30">
-      {/* Header */}
       <header className="bg-background shadow-sm border-b border-border sticky top-0 z-10">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <Logo />
@@ -258,13 +269,13 @@ const AdminDashboard: React.FC = () => {
       
       <main className="flex-1 container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-          <TabsList className="grid grid-cols-3 w-full max-w-md mx-auto">
+          <TabsList className="grid grid-cols-4 w-full max-w-md mx-auto">
             <TabsTrigger value="teams">Teams</TabsTrigger>
             <TabsTrigger value="results">Results</TabsTrigger>
+            <TabsTrigger value="hackathons">Hackathons</TabsTrigger>
             <TabsTrigger value="stats">Stats</TabsTrigger>
           </TabsList>
           
-          {/* Teams Tab */}
           <TabsContent value="teams" className="space-y-6">
             <div className="flex flex-col md:flex-row gap-4 md:items-center justify-between">
               <h2 className="text-2xl font-bold">Registered Teams</h2>
@@ -346,7 +357,6 @@ const AdminDashboard: React.FC = () => {
               </Table>
             </div>
             
-            {/* Team Details Modal */}
             {selectedTeam && (
               <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                 <div className="bg-background rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
@@ -449,7 +459,6 @@ const AdminDashboard: React.FC = () => {
             )}
           </TabsContent>
           
-          {/* Results Tab */}
           <TabsContent value="results" className="space-y-6">
             <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
               <div>
@@ -580,7 +589,10 @@ const AdminDashboard: React.FC = () => {
             )}
           </TabsContent>
           
-          {/* Stats Tab */}
+          <TabsContent value="hackathons" className="space-y-6">
+            <HackathonManagement />
+          </TabsContent>
+          
           <TabsContent value="stats" className="space-y-6">
             <h2 className="text-2xl font-bold">Hackathon Statistics</h2>
             
@@ -719,10 +731,8 @@ const AdminDashboard: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <div className="relative">
-                  {/* Timeline line */}
                   <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-border"></div>
                   
-                  {/* Timeline items */}
                   <div className="space-y-8 ml-6">
                     <div className="relative">
                       <div className="absolute left-0 w-4 h-4 bg-hacktrack-blue rounded-full border-4 border-background transform translate-x-[-50%] translate-y-[0%]" />
