@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle, Clock, X, Upload, FileText, Github, Video, Info, AlertTriangle, Download } from 'lucide-react';
@@ -12,6 +13,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/context/AuthContext';
+import { useHackathon } from '@/context/HackathonContext';
 import Logo from '@/components/ui/Logo';
 import HackathonDetails from '@/components/participant/HackathonDetails';
 
@@ -39,6 +41,7 @@ const ParticipantDashboard = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const { currentHackathon, results } = useHackathon();
   
   const handleLogout = async () => {
     try {
@@ -87,7 +90,7 @@ const ParticipantDashboard = () => {
   };
   
   return (
-    <div className="min-h-screen flex flex-col bg-secondary/30 dark:bg-hacktrack-gray-dark/30">
+    <div className="min-h-screen flex flex-col bg-secondary/30 dark:bg-secondary/30">
       {/* Header */}
       <header className="bg-background shadow-sm border-b border-border sticky top-0 z-10">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -118,7 +121,7 @@ const ParticipantDashboard = () => {
               <Badge variant="secondary">Draft</Badge>
             </div>
             
-            {submitReminder}
+            {currentHackathon && submitReminder}
             
             <Card className="border-0 shadow-md">
               <CardHeader>
@@ -145,7 +148,7 @@ const ParticipantDashboard = () => {
                       )}
                     </Button>
                     {hasAbstractUploaded && (
-                      <Badge variant="success" className="gap-1.5">
+                      <Badge variant="outline" className="bg-green-100 text-green-800 border-green-200 gap-1.5">
                         <CheckCircle className="h-3 w-3" />
                         Uploaded
                       </Badge>
@@ -170,7 +173,7 @@ const ParticipantDashboard = () => {
                       )}
                     </Button>
                     {hasVideoUploaded && (
-                      <Badge variant="success" className="gap-1.5">
+                      <Badge variant="outline" className="bg-green-100 text-green-800 border-green-200 gap-1.5">
                         <CheckCircle className="h-3 w-3" />
                         Uploaded
                       </Badge>
@@ -201,7 +204,9 @@ const ParticipantDashboard = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button onClick={handleSubmitProject}>Submit Project</Button>
+                <Button onClick={handleSubmitProject} disabled={!currentHackathon}>
+                  {!currentHackathon ? 'No Active Hackathon' : 'Submit Project'}
+                </Button>
               </CardFooter>
             </Card>
           </TabsContent>

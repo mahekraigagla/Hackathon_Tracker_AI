@@ -48,7 +48,7 @@ const HostEvent: React.FC = () => {
         </div>
       </CardContent>
       <CardFooter>
-        <Link to="/login" className="w-full">
+        <Link to="/login?role=admin" className="w-full">
           <Button className="w-full gap-2">
             Get Started
             <ArrowRight className="h-4 w-4" />
