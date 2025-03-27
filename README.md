@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to your Lovable project
 
 ## Project info
@@ -67,3 +68,7 @@ Simply open [Lovable](https://lovable.dev/projects/aa460b84-fcba-4548-8c27-57cb1
 ## I want to use a custom domain - is that possible?
 
 We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+=======
+# Hackathon_Tracker_AI
+HackTrack – AI-Powered Hackathon Portal HackTrack automates team registration, project evaluation, and shortlisting using AI. It ensures fair selection by analyzing abstracts, videos, and GitHub repos. Participants track submissions with AI feedback, while admins oversee results.
+>>>>>>> 5fc602b8cfba38dde3c5f708394a707ce711fcc2
