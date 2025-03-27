@@ -1,74 +1,48 @@
-<<<<<<< HEAD
-# Welcome to your Lovable project
+HackTrack – AI-Powered Hackathon Team Selection & Management Portal HackTrack is an intelligent, AI-driven platform designed to streamline the team registration, project submission, and evaluation process for hackathons. By leveraging Natural Language Processing (NLP), Computer Vision, and GitHub repository analysis, it ensures a fair and automated shortlisting of teams while providing a seamless experience for both participants and organizers.
 
-## Project info
+🔥 Key Features 👨‍💻 For Participants: 
+✅ Team Registration & Management – Teams can sign up, add members, and manage their project details. 
+✅ Project Submission Portal – Upload project descriptions, GitHub repositories, and demo links.
+✅ Dashboard for Tracking – View submission status, hackathon timeline, and evaluation progress. 
+✅ Automated Email Notifications – Get real-time updates on team shortlisting, results, and announcements.
+✅ AI-Powered FAQ Chatbot – Instant query resolution with an AI-driven assistant.
+✅ Dark/Light Mode UI – A modern, user-friendly interface with theme-switching options.
 
-**URL**: https://lovable.dev/projects/aa460b84-fcba-4548-8c27-57cb1517d0b9
+🛠️ For Organizers (Admins): 
+🔹 AI-Based Project Evaluation – Uses NLP, image recognition, and GitHub activity analysis for automated shortlisting.
+🔹 Manual Review & Result Declaration – Admins can manually assess shortlisted projects and declare winners. 
+🔹 Team & Submission Management – View, approve, or disqualify team submissions through a centralized panel. 
+🔹 Certificate Generation & Distribution – Generate and send certificates to winning teams automatically. 
+🔹 Admin Dashboard – Oversee hackathon progress, monitor participation statistics, and manage announcements.
 
-## How can I edit this code?
+🏗️ Tech Stack Component Technology Used Frontend React.js, Tailwind CSS Backend Node.js, Express.js Database MongoDB Authentication JWT-based authentication AI Models NLP (for project description analysis), Computer Vision (for UI/UX evaluation), GitHub API (for code quality analysis) Deployment Vercel / AWS / Firebase ⚙️ How HackTrack Works 1️⃣ Team Registration & Submission Teams register, create their profile, and submit their project details, including GitHub repositories, project descriptions, and demo links.
 
-There are several ways of editing your application.
+2️⃣ AI-Powered Evaluation NLP Model: Analyzes project descriptions to assess creativity, feasibility, and problem-solving approach.
 
-**Use Lovable**
+Computer Vision Model: Evaluates screenshots of the UI/UX to check design aesthetics.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/aa460b84-fcba-4548-8c27-57cb1517d0b9) and start prompting.
+GitHub API Analysis: Reviews commit frequency, contribution history, and code structure.
 
-Changes made via Lovable will be committed automatically to this repo.
+3️⃣ Admin Review & Shortlisting AI-generated scores help rank projects based on innovation, functionality, and technical complexity.
 
-**Use your preferred IDE**
+Organizers can override AI decisions, manually review projects, and approve/disqualify teams.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+4️⃣ Results & Certificate Distribution Once evaluations are complete, admins publish results and distribute digital certificates automatically.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🏆 Why Choose HackTrack? 🚀 AI-Powered Shortlisting – Eliminates manual bias and speeds up hackathon evaluations. 💡 Efficient & Scalable – Designed for hackathons of any size, from college fests to global competitions. 📊 Comprehensive Dashboard – Gives participants and organizers full control over the process. 📩 Seamless Communication – Automated emails keep participants informed. 🏅 Certificate Generation – Automates the post-hackathon process for hassle-free recognition.
 
-Follow these steps:
+🚀 Future Enhancements 🔹 Leaderboard & Ranking System – Display team rankings dynamically. 🔹 Real-Time Code Analysis – Use AI to detect plagiarism and originality in submissions. 🔹 Live Chat Support – Allow participants to chat with mentors or organizers. 🔹 Multi-Hackathon Support – Host and manage multiple hackathons on a single platform.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+🛠️ Setup & Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Clone the Repository git clone https://github.com/your-username/hacktrack.git cd hacktrack
 
-# Step 3: Install the necessary dependencies.
-npm i
+Install Dependencies npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Start the Backend Server cd server node index.js
 
-**Edit a file directly in GitHub**
+Start the Frontend cd client npm start
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Environment Variables Create a .env file and add necessary API keys: ini
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/aa460b84-fcba-4548-8c27-57cb1517d0b9) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
-=======
-# Hackathon_Tracker_AI
-HackTrack – AI-Powered Hackathon Portal HackTrack automates team registration, project evaluation, and shortlisting using AI. It ensures fair selection by analyzing abstracts, videos, and GitHub repos. Participants track submissions with AI feedback, while admins oversee results.
->>>>>>> 5fc602b8cfba38dde3c5f708394a707ce711fcc2
+MONGO_URI=your_mongodb_connection_string JWT_SECRET=your_jwt_secret GITHUB_API_KEY=your_github_api_key
