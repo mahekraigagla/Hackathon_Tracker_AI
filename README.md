@@ -35,14 +35,18 @@ Organizers can override AI decisions, manually review projects, and approve/disq
 
 🛠️ Setup & Installation
 
-Clone the Repository git clone https://github.com/your-username/hacktrack.git cd hacktrack
+Clone the Repository git clone https://github.com/mahekraigagla/Hackathon_Tracker_AI.git                                      
 
-Install Dependencies npm install
+Install Dependencies
+npm install
 
-Start the Backend Server cd server node index.js
+Start the Backend Server
+cd server node index.js
 
-Start the Frontend cd client npm start
+Start the Frontend 
+cd client npm start
 
-Environment Variables Create a .env file and add necessary API keys: ini
+Environment Variables 
+Create a .env file and add necessary API keys: ini
 
 MONGO_URI=your_mongodb_connection_string JWT_SECRET=your_jwt_secret GITHUB_API_KEY=your_github_api_key
