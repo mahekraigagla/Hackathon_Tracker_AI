@@ -29,7 +29,7 @@ const Logo: React.FC<LogoProps> = ({
   };
 
   const colors = {
-    default: 'text-hacktrack-blue',
+    default: 'text-primary',
     white: 'text-white',
   };
 

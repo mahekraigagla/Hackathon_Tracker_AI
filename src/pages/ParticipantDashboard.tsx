@@ -144,6 +144,13 @@ const ParticipantDashboard: React.FC = () => {
     });
   };
   
+  // Define submitReminder class early to avoid reference error
+  const submitReminder = now > submissionDeadline 
+    ? 'text-red-500' 
+    : submissionDaysRemaining <= 2 
+      ? 'text-orange-500' 
+      : 'text-muted-foreground';
+  
   return (
     <div className="min-h-screen flex flex-col bg-secondary/30 dark:bg-hacktrack-gray-dark/30">
       {/* Header */}
@@ -174,7 +181,8 @@ const ParticipantDashboard: React.FC = () => {
                 <CardContent>
                   <div className="flex items-start gap-3">
                     <div className={`${statusInfo[submissionStatus].color} mt-1`}>
-                      <statusInfo[submissionStatus].icon className="h-5 w-5" />
+                      {/* Fixed issue: Use proper JSX for dynamic component */}
+                      {React.createElement(statusInfo[submissionStatus].icon, { className: "h-5 w-5" })}
                     </div>
                     <div>
                       <div className={`font-medium ${statusInfo[submissionStatus].color}`}>
@@ -424,7 +432,7 @@ const ParticipantDashboard: React.FC = () => {
                     
                     {(submissionStatus === 'submitted' || submissionStatus === 'under_review') && (
                       <div className="text-center py-16">
-                        <div className="animate-pulse-slow">
+                        <div className="animate-pulse">
                           <Clock className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                         </div>
                         <h3 className="text-lg font-medium mb-2">Evaluation in Progress</h3>
@@ -727,11 +735,5 @@ const ParticipantDashboard: React.FC = () => {
     </div>
   );
 };
-
-const submitReminder = now > submissionDeadline 
-  ? 'text-red-500' 
-  : submissionDaysRemaining <= 2 
-    ? 'text-orange-500' 
-    : 'text-muted-foreground';
 
 export default ParticipantDashboard;
