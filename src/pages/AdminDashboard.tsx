@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CheckCircle, Clock, X, FileText, Download, Search, Filter, Edit, Users, Award, RefreshCw } from 'lucide-react';
+import { CheckCircle, Clock, X, FileText, Download, Search, Filter, Edit, Users, Award, RefreshCw, Video, Github } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/context/AuthContext';
 import Logo from '@/components/ui/Logo';
@@ -426,7 +425,7 @@ const AdminDashboard: React.FC = () => {
                             )}
                             {selectedTeam.hasGithub && (
                               <Button variant="outline" size="sm" className="w-full justify-start">
-                                <GitHub className="h-4 w-4 mr-2" />
+                                <Github className="h-4 w-4 mr-2" />
                                 View GitHub Repository
                               </Button>
                             )}
@@ -632,7 +631,7 @@ const AdminDashboard: React.FC = () => {
                 <CardContent className="pt-6">
                   <div className="flex items-center gap-4">
                     <div className="bg-primary/10 rounded-full p-3">
-                      <GitHub className="h-6 w-6 text-primary" />
+                      <Github className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <div className="text-3xl font-bold">{hasGithubCount}</div>

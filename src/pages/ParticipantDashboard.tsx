@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CheckCircle, Clock, X, Upload, FileText, GitHub, Video, Info, AlertTriangle, Download } from 'lucide-react';
+import { CheckCircle, Clock, X, Upload, FileText, Github, Video, Info, AlertTriangle, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -360,7 +359,7 @@ const ParticipantDashboard: React.FC = () => {
                     
                     <div className="space-y-2">
                       <Label className="flex items-center" htmlFor="github-link">
-                        <GitHub className="h-4 w-4 mr-1 text-hacktrack-blue" />
+                        <Github className="h-4 w-4 mr-1 text-hacktrack-blue" />
                         <span>GitHub Repository Link (Optional)</span>
                       </Label>
                       <Input
