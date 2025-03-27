@@ -15,18 +15,14 @@ HackTrack – AI-Powered Hackathon Team Selection & Management Portal HackTrack 
 🔹 Certificate Generation & Distribution – Generate and send certificates to winning teams automatically. 
 🔹 Admin Dashboard – Oversee hackathon progress, monitor participation statistics, and manage announcements.
 
-🏗️ Tech Stack Component Technology Used Frontend React.js, Tailwind CSS Backend Node.js, Express.js Database MongoDB Authentication JWT-based authentication AI Models NLP (for project description analysis), Computer Vision (for UI/UX evaluation), GitHub API (for code quality analysis) Deployment Vercel / AWS / Firebase ⚙️ How HackTrack Works 1️⃣ Team Registration & Submission Teams register, create their profile, and submit their project details, including GitHub repositories, project descriptions, and demo links.
-
+🏗️ Tech Stack Component Technology Used Frontend React.js, Tailwind CSS Backend Node.js, Express.js Database MongoDB Authentication JWT-based authentication AI Models NLP (for project description analysis), Computer Vision (for UI/UX evaluation), GitHub API (for code quality analysis) Deployment Vercel / AWS / Firebase 
+⚙️ How HackTrack Works 
+1️⃣ Team Registration & Submission Teams register, create their profile, and submit their project details, including GitHub repositories, project descriptions, and demo links.
 2️⃣ AI-Powered Evaluation NLP Model: Analyzes project descriptions to assess creativity, feasibility, and problem-solving approach.
-
 Computer Vision Model: Evaluates screenshots of the UI/UX to check design aesthetics.
-
 GitHub API Analysis: Reviews commit frequency, contribution history, and code structure.
-
 3️⃣ Admin Review & Shortlisting AI-generated scores help rank projects based on innovation, functionality, and technical complexity.
-
 Organizers can override AI decisions, manually review projects, and approve/disqualify teams.
-
 4️⃣ Results & Certificate Distribution Once evaluations are complete, admins publish results and distribute digital certificates automatically.
 
 🏆 Why Choose HackTrack?
@@ -44,6 +40,7 @@ Organizers can override AI decisions, manually review projects, and approve/disq
 
 
 Link for my project(video uploaded on google drive)
+
 https://drive.google.com/file/d/1J0cqQWpjJHpMFto-NesxLlT2Ph0DmEKj/view?usp=sharing
 
 🛠️ Setup & Installation
