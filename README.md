@@ -8,15 +8,15 @@ HackTrack – AI-Powered Hackathon Team Selection & Management Portal HackTrack 
 ✅ AI-Powered FAQ Chatbot – Instant query resolution with an AI-driven assistant.
 ✅ Dark/Light Mode UI – A modern, user-friendly interface with theme-switching options.
 
-🛠️ For Organizers (Admins): 
+🛠 For Organizers (Admins): 
 🔹 AI-Based Project Evaluation – Uses NLP, image recognition, and GitHub activity analysis for automated shortlisting.
 🔹 Manual Review & Result Declaration – Admins can manually assess shortlisted projects and declare winners. 
 🔹 Team & Submission Management – View, approve, or disqualify team submissions through a centralized panel. 
 🔹 Certificate Generation & Distribution – Generate and send certificates to winning teams automatically. 
 🔹 Admin Dashboard – Oversee hackathon progress, monitor participation statistics, and manage announcements.
 
-🏗️ Tech Stack Component Technology Used Frontend React.js, Tailwind CSS Backend Node.js, Express.js Database MongoDB Authentication JWT-based authentication AI Models NLP (for project description analysis), Computer Vision (for UI/UX evaluation), GitHub API (for code quality analysis) Deployment Vercel / AWS / Firebase 
-⚙️ How HackTrack Works 
+🏗 Tech Stack Component Technology Used Frontend React.js, Tailwind CSS Backend Node.js, Express.js Database MongoDB Authentication JWT-based authentication AI Models NLP (for project description analysis), Computer Vision (for UI/UX evaluation), GitHub API (for code quality analysis) Deployment Vercel / AWS / Firebase 
+⚙ How HackTrack Works 
 1️⃣ Team Registration & Submission Teams register, create their profile, and submit their project details, including GitHub repositories, project descriptions, and demo links.
 2️⃣ AI-Powered Evaluation NLP Model: Analyzes project descriptions to assess creativity, feasibility, and problem-solving approach.
 Computer Vision Model: Evaluates screenshots of the UI/UX to check design aesthetics.
@@ -43,7 +43,7 @@ Link for my project(video uploaded on google drive)
 
 https://drive.google.com/file/d/1J0cqQWpjJHpMFto-NesxLlT2Ph0DmEKj/view?usp=sharing
 
-🛠️ Setup & Installation
+🛠 Setup & Installation
 
 Clone the Repository git clone https://github.com/mahekraigagla/Hackathon_Tracker_AI.git                                      
 
