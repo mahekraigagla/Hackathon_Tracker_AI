@@ -29,9 +29,22 @@ Organizers can override AI decisions, manually review projects, and approve/disq
 
 4️⃣ Results & Certificate Distribution Once evaluations are complete, admins publish results and distribute digital certificates automatically.
 
-🏆 Why Choose HackTrack? 🚀 AI-Powered Shortlisting – Eliminates manual bias and speeds up hackathon evaluations. 💡 Efficient & Scalable – Designed for hackathons of any size, from college fests to global competitions. 📊 Comprehensive Dashboard – Gives participants and organizers full control over the process. 📩 Seamless Communication – Automated emails keep participants informed. 🏅 Certificate Generation – Automates the post-hackathon process for hassle-free recognition.
+🏆 Why Choose HackTrack?
+🚀 AI-Powered Shortlisting – Eliminates manual bias and speeds up hackathon evaluations.
+💡 Efficient & Scalable – Designed for hackathons of any size, from college fests to global competitions.
+📊 Comprehensive Dashboard – Gives participants and organizers full control over the process. 
+📩 Seamless Communication – Automated emails keep participants informed.
+🏅 Certificate Generation – Automates the post-hackathon process for hassle-free recognition.
 
-🚀 Future Enhancements 🔹 Leaderboard & Ranking System – Display team rankings dynamically. 🔹 Real-Time Code Analysis – Use AI to detect plagiarism and originality in submissions. 🔹 Live Chat Support – Allow participants to chat with mentors or organizers. 🔹 Multi-Hackathon Support – Host and manage multiple hackathons on a single platform.
+🚀 Future Enhancements 
+🔹 Leaderboard & Ranking System – Display team rankings dynamically. 
+🔹 Real-Time Code Analysis – Use AI to detect plagiarism and originality in submissions. 
+🔹 Live Chat Support – Allow participants to chat with mentors or organizers. 
+🔹 Multi-Hackathon Support – Host and manage multiple hackathons on a single platform.
+
+
+Link for my project(video uploaded on google drive)
+https://drive.google.com/file/d/1J0cqQWpjJHpMFto-NesxLlT2Ph0DmEKj/view?usp=sharing
 
 🛠️ Setup & Installation
 
